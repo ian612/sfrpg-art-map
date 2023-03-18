@@ -1,24 +1,29 @@
 {
-  "id": "module",
-  "title": "New Module",
+  "id": "sfrpg-art-map",
+  "title": "Starfinder Compendium Art Mapper",
   "description": "",
-  "version": "#{VERSION}#",
+  "version": "0.1",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
     "minimum": 10,
-    "verified": 10,
-    "maximum": 11
+    "verified": 10.291,
+    "maximum": 10
   },
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
+      "name": "Ian B",
       "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "discord": "Graham_Negative#9479"
     }
   ],
   "relationships": {
-    "systems": [],
+    "systems": [ {
+      "id": "sfrpg",
+      "type": "system",
+      "manifest": "https://raw.githubusercontent.com/foundryvtt-starfinder/foundryvtt-starfinder/master/src/system.json",
+      "verified": "0.23.0"
+    }],
     "requires": []
   },
   "esmodules": [

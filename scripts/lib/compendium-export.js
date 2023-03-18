@@ -1,3 +1,17 @@
+// Functions
+async function openFile(fileName, data) {
+  try {
+    const file = await fs(fileName, 'w');
+    await file.write(data);
+    console.log('Opened file ${fileName}');
+  } catch (error) {
+    console.error('Got an error trying to open the file: {error.message}');
+  }
+}
+
+// Loads
+const fs = require('fs');
+
 // Definition of Variables
 const gamePacks = game.packs
 let actorPacks = []
@@ -44,7 +58,11 @@ for (let pack of actorPacks) {
   }
 }
 
+
+// Write the data out to a file
+openFile('././data/out.csv')
 console.log(csvFinal)
+
 
 //console.log(actorPacks)
 //console.log(compendium)
