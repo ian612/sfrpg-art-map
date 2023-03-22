@@ -10,8 +10,6 @@ async function openFile(fileName, data) {
 }
 
 export async function createCSV() {
-  // Loads
-  const fs = require('fs');
 
   // Definition of Variables
   const gamePacks = game.packs
@@ -61,7 +59,7 @@ export async function createCSV() {
 
 
   // Write the data out to a file
-  openFile('././data/out.csv')
+  openFile('../data/out.csv')
   console.log(csvFinal)
   return(csvFinal)
 

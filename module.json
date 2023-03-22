@@ -27,10 +27,10 @@
     "requires": []
   },
   "esmodules": [
-    "scripts/module.js"
+    "module.js"
   ],
   "scripts": [
-    "scripts/lib/lib.js"
+    "scripts/lib.js"
   ],
   "styles": [
     "styles/module.css"

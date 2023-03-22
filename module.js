@@ -1,4 +1,7 @@
 import{ createCSV } from './scripts/compendium-export.js'
+// Loads
+//const fs = require('fs');
+//import * as fs from 'fs';
 
 Hooks.once('init', async function() {
     console.log('SF Art Map | Initializing Starfinder Compendium Art Mapper')
@@ -45,7 +48,7 @@ class SfrpgArtMapConfig {
         // Do something when the button is clicked
         $(artButton).click((event) => { 
             //new SfrpgArtMapForm().render(true) // Not implemented yet
-            csvFinal = createCSV()
+            let csvFinal = createCSV()
         })
 
         // Define the position of the button
