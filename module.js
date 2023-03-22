@@ -1,4 +1,5 @@
-import{ createCSV } from './scripts/compendium-export.js'
+import { createCSV } from './scripts/compendium-export.js'
+import { createJSON } from './scripts/compendium-export.js'
 // Loads
 //const fs = require('fs');
 //import * as fs from 'fs';
@@ -49,7 +50,8 @@ class SfrpgArtMapConfig {
         // Do something when the button is clicked
         $(artButton).click((event) => { 
             //new SfrpgArtMapForm().render(true) // Not implemented yet
-            let csvFinal = createCSV()
+            const csvData = createCSV()
+            createJSON(csvData)
         })
 
         // Define the position of the button

@@ -45,20 +45,19 @@ export async function createCSV() {
     ct = 0
     compendium = pack.metadata.name
     idCompendium = pack.metadata.id
+    // Loop through each actor in the pack, collect the data
     for (let actor of pack.index) {
       try {
         name = actor.name
         id = actor._id
         img = actor.img
-        console.log(ct) //debug
-        console.log(name) //debug
         doc = await pack.getDocument(actor._id)
-        console.log(name) //debug
         imgToken = doc.prototypeToken.texture.src
         source = doc.system.details.source
+        // Create the csv line
         line = ''.concat(ct.toString(), ' - ', compendium, ' - ', source, ' - ', name, ', ', idCompendium, ', ', id, ', ', img, ', ', imgToken, ', , ')
+        // Append the line to the csv output
         csvFinal = csvFinal.concat(line, '\n')
-        csv.push(line)
       } catch (error) {
         console.log('Oh No! An error occured with a naughty entry. Details to follow, captain.')
         console.log(pack)
@@ -74,12 +73,8 @@ export async function createCSV() {
   console.log(csvFinal)
   console.log('Finished reading actor image data.')
   return(csvFinal)
+}
 
-
-  //console.log(actorPacks)
-  //console.log(compendium)
-  //console.log(idCompendium)
-  //console.log(name)
-  //console.log(id)
-  //console.log(img)
+export function createJSON(csvData) {
+  console.log("I'm a json. jk.")
 }
