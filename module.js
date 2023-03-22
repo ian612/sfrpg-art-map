@@ -4,6 +4,7 @@ import{ createCSV } from './scripts/compendium-export.js'
 //import * as fs from 'fs';
 
 Hooks.once('init', async function() {
+    const artMap = SfrpgArtMap
     console.log('SF Art Map | Initializing Starfinder Compendium Art Mapper')
 })
 

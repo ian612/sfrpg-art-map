@@ -10,6 +10,8 @@ async function openFile(fileName, data) {
 }
 
 export async function createCSV() {
+  
+  console.log('Beginning to read actor data from compendiums.')
 
   // Definition of Variables
   const gamePacks = game.packs
@@ -44,23 +46,33 @@ export async function createCSV() {
     compendium = pack.metadata.name
     idCompendium = pack.metadata.id
     for (let actor of pack.index) {
-      name = actor.name
-      id = actor._id
-      img = actor.img
-      doc = await pack.getDocument(actor._id)
-      imgToken = doc.prototypeToken.texture.src
-      source = doc.system.details.source
-      line = ''.concat(ct.toString(), ' - ', compendium, ' - ', source, ' - ', name, ', ', idCompendium, ', ', id, ', ', img, ', ', imgToken, ', , ')
-      csvFinal = csvFinal.concat(line, '\n')
-      csv.push(line)
+      try {
+        name = actor.name
+        id = actor._id
+        img = actor.img
+        console.log(ct) //debug
+        console.log(name) //debug
+        doc = await pack.getDocument(actor._id)
+        console.log(name) //debug
+        imgToken = doc.prototypeToken.texture.src
+        source = doc.system.details.source
+        line = ''.concat(ct.toString(), ' - ', compendium, ' - ', source, ' - ', name, ', ', idCompendium, ', ', id, ', ', img, ', ', imgToken, ', , ')
+        csvFinal = csvFinal.concat(line, '\n')
+        csv.push(line)
+      } catch (error) {
+        console.log('Oh No! An error occured with a naughty entry. Details to follow, captain.')
+        console.log(pack)
+        console.log(name)
+        console.log(ct)
+      }
       ct = ct+1
     }
   }
 
 
   // Write the data out to a file
-  openFile('../data/out.csv')
   console.log(csvFinal)
+  console.log('Finished reading actor image data.')
   return(csvFinal)
 
 
