@@ -1,8 +1,4 @@
-import { createCSV, createJSON } from './scripts/compendium-export.js'
-//import { parse } from './scripts/csv-parse/lib/sync.js'
-// Loads
-//const fs = require('fs');
-//import * as fs from 'fs';
+import { createCSV, csvJSON } from './scripts/compendium-export.js'
 
 Hooks.once('init', async function() {
     const artMap = SfrpgArtMap
@@ -51,7 +47,8 @@ class SfrpgArtMapConfig {
         $(artButton).click((event) => { 
             //new SfrpgArtMapForm().render(true) // Not implemented yet
             const csvData = createCSV()
-            createJSON(csvData)
+            console.log(typeof(csvData))
+            csvJSON(csvData)
         })
 
         // Define the position of the button
