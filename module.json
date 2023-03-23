@@ -43,15 +43,9 @@
       "path": "languages/en.json"
     }
   ],
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
+  "url": "https://github.com/ian612/sfrpg-art-map",
+  "manifest": "https://raw.githubusercontent.com/ian612/sfrpg-art-map/master/module.json",
+  "download": "https://github.com/ian612/sfrpg-art-map/archive/refs/tags/v0.1.0.zip",
   "license": "LICENSE",
-  "readme": "README.md",
-  "media": [
-    {
-      "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
-    }
-  ]
+  "readme": "README.md"
 }
