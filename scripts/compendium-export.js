@@ -1,14 +1,6 @@
-// Functions
-async function openFile(fileName, data) {
-  try {
-    const file = await fs(fileName, 'w');
-    await file.write(data);
-    console.log(`Opened file ${fileName}`);
-  } catch (error) {
-    console.error(`Got an error trying to open the file: ${error.message}`);
-  }
-}
+// Imports
 
+// Functions
 export async function createCSV() {
   
   console.log('Beginning to read actor data from compendiums.')
@@ -29,7 +21,7 @@ export async function createCSV() {
   let line = ''
   let ct = 0
   let csv = []
-  let csvFinal = ''
+  let csvData = ''
 
 
   // Get the compendiums with actors
@@ -57,7 +49,7 @@ export async function createCSV() {
         // Create the csv line
         line = ''.concat(ct.toString(), ' - ', compendium, ' - ', source, ' - ', name, ', ', idCompendium, ', ', id, ', ', img, ', ', imgToken, ', , ')
         // Append the line to the csv output
-        csvFinal = csvFinal.concat(line, '\n')
+        csvData = csvData.concat(line, '\n')
       } catch (error) {
         console.log('Oh No! An error occured with a naughty entry. Details to follow, captain.')
         console.log(pack)
@@ -70,11 +62,39 @@ export async function createCSV() {
 
 
   // Write the data out to a file
-  console.log(csvFinal)
+  console.log(csvData)
   console.log('Finished reading actor image data.')
-  return(csvFinal)
+  return(csvData)
 }
 
 export function createJSON(csvData) {
+  // Part of this script was written by stwlam for processing csv to json token images for the Pathfinder 2e system
+  // Available at https://github.com/stwlam/module-art-tools
+  
   console.log("I'm a json. jk.")
+
+  // Might need to be removed
+  const parser = csvParser;
+  
+  const jsonData = parser
+    .parse(csvData)
+    .slice(1)
+    .map((row) => ({
+        pack: row[1],
+        id: row[2],
+        actor: row[3],
+        token:
+            row[5].trim() || row[6]
+                ? { img: row[4], scale: Number(row[5]) || undefined, randomImg: !!row[6] || undefined }
+                : row[4],
+        randomImg: !!row[6],
+    }))
+    .reduce((accum, row) => {
+        accum[row.pack] ??= {};
+        accum[row.pack][row.id] = { actor: row.actor, token: row.token };
+        return accum;
+    }, {});
+  
+    console.log(jsonData)
+    return(jsonData);
 }
