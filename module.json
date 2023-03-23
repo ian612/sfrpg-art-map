@@ -29,9 +29,6 @@
   "esmodules": [
     "module.js"
   ],
-  "scripts": [
-    "scripts/lib.js"
-  ],
   "styles": [
     "styles/module.css"
   ],

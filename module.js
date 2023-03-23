@@ -1,5 +1,5 @@
 import { createCSV, createJSON } from './scripts/compendium-export.js'
-import { CSVparser } from './csv-parse/lib/sync.js'
+//import { parse } from './scripts/csv-parse/lib/sync.js'
 // Loads
 //const fs = require('fs');
 //import * as fs from 'fs';

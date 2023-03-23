@@ -74,7 +74,7 @@ export function createJSON(csvData) {
   console.log("I'm a json. jk.")
 
   // Might need to be removed
-  const parser = csvParser;
+  const parser = parse;
   
   const jsonData = parser
     .parse(csvData)
