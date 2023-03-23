@@ -1,4 +1,4 @@
-// Imports
+import { parse } from './csv-parse.js'
 
 // Functions
 export async function createCSV() {
@@ -33,6 +33,8 @@ export async function createCSV() {
 
 
   // Generate .csv lines for each actor
+  line = ''.concat('num - compendium - source - name, idCompendium, id, img, imgToken')
+  csvData = csvData.concat(line, '\n')
   for (let pack of actorPacks) {
     ct = 0
     compendium = pack.metadata.name
@@ -47,7 +49,7 @@ export async function createCSV() {
         imgToken = doc.prototypeToken.texture.src
         source = doc.system.details.source
         // Create the csv line
-        line = ''.concat(ct.toString(), ' - ', compendium, ' - ', source, ' - ', name, ', ', idCompendium, ', ', id, ', ', img, ', ', imgToken, ', , ')
+        line = ''.concat(ct.toString(), ' - ', compendium, ' - ', source, ' - ', name, ', ', idCompendium, ', ', id, ', ', img, ', ', imgToken)
         // Append the line to the csv output
         csvData = csvData.concat(line, '\n')
       } catch (error) {
@@ -62,9 +64,40 @@ export async function createCSV() {
 
 
   // Write the data out to a file
-  console.log(csvData)
+  //console.log(csvData)
   console.log('Finished reading actor image data.')
   return(csvData)
+}
+
+//var csv is the CSV file with headers
+export function csvJSON(csv){
+  
+  var lines=csv.split("\n");
+
+  var result = [];
+
+  // NOTE: If your columns contain commas in their values, you'll need
+  // to deal with those before doing the next step 
+  // (you might convert them to &&& or something, then covert them back later)
+  // jsfiddle showing the issue https://jsfiddle.net/
+  var headers=lines[0].split(",");
+
+  for(var i=1;i<lines.length;i++){
+
+      var obj = {};
+      var currentline=lines[i].split(",");
+
+      for(var j=0;j<headers.length;j++){
+          obj[headers[j]] = currentline[j];
+      }
+
+      result.push(obj);
+
+  }
+
+  //return result; //JavaScript object
+  console.log(result)
+  return JSON.stringify(result); //JSON
 }
 
 export function createJSON(csvData) {
@@ -72,12 +105,23 @@ export function createJSON(csvData) {
   // Available at https://github.com/stwlam/module-art-tools
   
   console.log("I'm a json. jk.")
+  
+  
 
   // Might need to be removed
-  const parser = parse;
-  
-  const jsonData = parser
-    .parse(csvData)
+  const parse1 = parse()
+  //console.log(parse1)
+
+  /*let utf8Encode = new TextEncoder();
+  utf8Encode.encode(csvData);
+  const jsonD = parse({
+    parser: utf8Encode,
+    slice: 1
+  })
+  console.log(jsonD)*/
+
+  const jsonData = parse1
+    .parser(csvData)
     .slice(1)
     .map((row) => ({
         pack: row[1],
