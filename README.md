@@ -1,16 +1,13 @@
-![](https://img.shields.io/badge/Foundry-v10-informational)
 <!--- Downloads @ Latest Badge -->
-<!--- replace <user>/<repo> with your username/repository -->
 <!--- ![Latest Release Download Count](https://img.shields.io/github/downloads/ian612/sfrpg-art-map/latest/module.zip) -->
 
 <!--- Forge Bazaar Install % Badge -->
-<!--- replace <your-module-name> with the `name` in your manifest -->
 <!--- ![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fsfrpg-art-map&colorB=4aa94a) -->
 
 PLEASE NOTE, THIS MODULE IS IN A PRE-RELEASE STATE! THERE MAY BE BUGS!
 MAKE SURE TO KEEP FREQUENT WORLD DATA BACKUPS.
 
-# Starfinder Compendium Art Mapper
+# Starfinder Compendium Art Mapper ![](https://img.shields.io/badge/Foundry-v10-informational)
 
 This module allows you to generate a compendium art map json file automatically from the compendiums of actors included in the Starfinder system, using the process detailed in [this wiki entry](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/wiki/Compendium-Image-Mapping). Once enabled, it performs two functions (you may need to reload your world after enabling):
 
