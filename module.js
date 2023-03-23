@@ -59,7 +59,7 @@ class SfrpgArtMapConfig {
         // Function to create the button
         static createButton() {
             let button = document.createElement('button')
-            button.innerHTML = `<i id='art-button' class='fas fa-palette'></i>Map Compendium Artwork`
+            button.innerHTML = `<i id='art-button' class='fas fa-palette'></i>Generate Compendium Art Map`
             button.classList.add('control-icon')
 
             return button

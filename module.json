@@ -13,7 +13,6 @@
   "authors": [
     {
       "name": "Ian B",
-      "url": "https://github.com/League-of-Foundry-Developers",
       "discord": "Graham_Negative#9479"
     }
   ],
@@ -25,6 +24,11 @@
       "verified": "0.23.0"
     }],
     "requires": []
+  },
+  "flags": {
+    "sfrpg-art-map": {
+      "sfrpg-art": "sfrpgArtMap/art-mapping.json"
+    }
   },
   "esmodules": [
     "module.js"

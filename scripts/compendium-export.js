@@ -45,7 +45,8 @@ export async function createJSON() {
       data[compendium][id] = {}
       
       name = actor.name
-      data[compendium][id].name = ct.toString().concat(' - ', name)
+      data[compendium][id].entryNum = ct.toString()
+      data[compendium][id].name = name
 
       img = actor.img
       data[compendium][id].actor = img
@@ -62,11 +63,20 @@ export async function createJSON() {
     }
   }
 
+  console.log(data)
+  
+  // Create directory if it doesn't exist
+  try{
+    await FilePicker.createDirectory('data', 'sfrpgArtMap')
+  } catch (err) {
+    if (!err.startsWith("EEXIST")){
+      console.log('Directory already exists, skipping that step.')
+    }
+  }
 
   // Write the data out to a file
-  console.log(data)
-  const newFile = new File([JSON.stringify(data, null, 2)], 'art-mapping.json');
-  await FilePicker.upload("data", "modules/sfrpg-art-map/data/", newFile, {}, {notify:false});
+  const newFile = new File([JSON.stringify(data, null, 4)], 'art-mapping.json');
+  await FilePicker.upload('data', 'sfrpgArtMap/', newFile, {}, {notify:false});
   console.log('Finished reading actor image data.')
   return(data)
 }
