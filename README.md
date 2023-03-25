@@ -14,7 +14,7 @@ This module allows you to generate a compendium art map json file automatically 
 
 1. The module includes the appropriate flag in its module.json file to tell the system where the mapping json file is (as described in [Step 1](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/wiki/Compendium-Image-Mapping#step-1-creating-a-module-and-modulejson)).
 
-2. It adds this button to the compendium tab for GMs. Clicking it will spool through all the actors in the system compendium, compiling a json file as specified by the sfrpg system's compendium image mapping function (as described in [Step 2](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/wiki/Compendium-Image-Mapping#step-2-creating-a-mapping)). Any actors that already have art/token art will have the path to those assets added to the json file. Any actors without them will show the default art/token art. For now, the token scale is hardcoded to 1, this will be fixed in a later release.
+2. It adds this button to the compendium tab for GMs. Clicking it will spool through all the actors in the system compendium, compiling a json file as specified by the sfrpg system's compendium image mapping function (as described in [Step 2](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/wiki/Compendium-Image-Mapping#step-2-creating-a-mapping)). Any actors that already have art/token art will have the path to those assets added to the json file. Any actors without them will show the default art/token art.
 
 ![image](https://user-images.githubusercontent.com/34078802/227305566-b5810b84-5a03-4677-bb12-da92cd924ca5.png)
 
@@ -23,3 +23,4 @@ This module allows you to generate a compendium art map json file automatically 
 ## Changelog
 
 v0.1.0 - Initial release
+v0.2.0 - Added some user-friendliness functionality (dialog confirmation & UI notification), localization, and a function to back the art map up each time a new one is generated
