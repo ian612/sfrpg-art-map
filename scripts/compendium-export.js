@@ -18,6 +18,34 @@ export async function createJSON() {
   let ct = 0
 
 
+  // Create directory if it doesn't exist
+  try{
+    await FilePicker.createDirectory('data', 'sfrpgArtMap')
+  } catch (err) {
+    if (!err.startsWith("EEXIST")){
+      console.log('Directory already exists, skipping that step.')
+    }
+  }
+
+  
+  // Get a backup of the old art map
+  let oldData = {}
+  let oldDataLoaded = 0
+  try {
+    oldData = await import('../../../sfrpgArtMap/art-mapping.json', { assert: { type: 'json' } })
+    oldDataLoaded = 1
+  } catch {
+    oldDataLoaded = 0
+  }
+
+  // If an old file exists, make a backup
+  if (oldDataLoaded) {
+    ui.notifications.info(game.i18n.localize("artMap.backupNotify"))
+    const oldFile = new File([JSON.stringify(oldData.default, null, 4)], 'art-mapping-old.json');
+    await FilePicker.upload('data', 'sfrpgArtMap/', oldFile, {}, {notify:false});
+  }
+
+
   // Get the compendiums with actors
   for (let pack of gamePacks) {
     if (pack.metadata.packageType == 'system' && pack.metadata.type == 'Actor') {
@@ -30,7 +58,7 @@ export async function createJSON() {
   }
 
 
-  // Generate .csv lines for each actor
+  // Generate required data for each actor
   for (let pack of actorPacks) {
     ct = 0
     compendium = pack.metadata.name
@@ -52,9 +80,10 @@ export async function createJSON() {
       data[compendium][id].actor = img
 
       imgToken = doc.prototypeToken.texture.src
+      imgTokenScale = doc.prototypeToken.texture.scaleX
       data[compendium][id].token = {}
       data[compendium][id].token.img = imgToken
-      data[compendium][id].token.scale = 1
+      data[compendium][id].token.scale = imgTokenScale
 
       source = doc.system.details.source
       data[compendium][id].source = source
@@ -64,19 +93,13 @@ export async function createJSON() {
   }
 
   console.log(data)
-  
-  // Create directory if it doesn't exist
-  try{
-    await FilePicker.createDirectory('data', 'sfrpgArtMap')
-  } catch (err) {
-    if (!err.startsWith("EEXIST")){
-      console.log('Directory already exists, skipping that step.')
-    }
-  }
 
   // Write the data out to a file
   const newFile = new File([JSON.stringify(data, null, 4)], 'art-mapping.json');
   await FilePicker.upload('data', 'sfrpgArtMap/', newFile, {}, {notify:false});
+
+  // Inform the user that we're done
+  ui.notifications.info(game.i18n.localize("artMap.done"))
   console.log('Finished reading actor image data.')
   return(data)
 }
