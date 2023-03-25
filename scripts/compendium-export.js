@@ -92,6 +92,7 @@ export async function createJSON() {
     }
   }
 
+  console.log('All actor data found is listed here.')
   console.log(data)
 
   // Write the data out to a file
