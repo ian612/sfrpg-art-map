@@ -46,7 +46,25 @@ class SfrpgArtMapConfig {
         // Do something when the button is clicked
         $(artButton).click((event) => { 
             //new SfrpgArtMapForm().render(true) // Not implemented yet
-            let imgData = createJSON()
+            const myDialog = new Dialog({
+                title: game.i18n.localize("artMap.mapButton"),
+              content: game.i18n.localize("artMap.warning"),
+              buttons: {
+                button1: {
+                    label: game.i18n.localize("artMap.yes"),
+                    callback: () => {
+                        ui.notifications.info(game.i18n.localize("artMap.generating"))
+                        const imgData = createJSON()
+                    },
+                    icon: `<i class="fas fa-check"></i>`
+                  },
+                button2: {
+                    label: game.i18n.localize("artMap.no"),
+                    callback: () => {ui.notifications.info(game.i18n.localize("artMap.cancel"))},
+                    icon: `<i class="fas fa-times"></i>`
+                },
+              }
+            }).render(true);
         })
 
         // Define the position of the button
@@ -59,7 +77,7 @@ class SfrpgArtMapConfig {
         // Function to create the button
         static createButton() {
             let button = document.createElement('button')
-            button.innerHTML = `<i id='art-button' class='fas fa-palette'></i>Generate Compendium Art Map`
+            button.innerHTML = `<i id='art-button' class='fas fa-palette'></i>`.concat(game.i18n.localize("artMap.mapButton"))
             button.classList.add('control-icon')
 
             return button
