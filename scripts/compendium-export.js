@@ -32,16 +32,16 @@ export async function createJSON() {
   let oldData = {}
   let oldDataLoaded = 0
   try {
-    oldData = await import('../../../sfrpgArtMap/art-mapping.json', { assert: { type: 'json' } })
+    oldData = await fetch('../../../sfrpgArtMap/art-mapping.json').then((res) => res.json())
     oldDataLoaded = 1
-  } catch {
+  } catch (err) {
     oldDataLoaded = 0
   }
 
   // If an old file exists, make a backup
   if (oldDataLoaded) {
     ui.notifications.info(game.i18n.localize("artMap.backupNotify"))
-    const oldFile = new File([JSON.stringify(oldData.default, null, 4)], 'art-mapping-old.json');
+    const oldFile = new File([JSON.stringify(oldData, null, 4)], 'art-mapping-old.json');
     await FilePicker.upload('data', 'sfrpgArtMap/', oldFile, {}, {notify:false});
   }
 
@@ -92,6 +92,7 @@ export async function createJSON() {
     }
   }
 
+  console.log('All actor data found is listed here.')
   console.log(data)
 
   // Write the data out to a file
