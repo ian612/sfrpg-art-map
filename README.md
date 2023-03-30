@@ -25,12 +25,12 @@ I recommend using the [Compenium Image Mapper](https://foundryvtt.com/packages/i
 
 ![image](https://user-images.githubusercontent.com/34078802/228699774-a09c8adb-3882-409b-9262-f878cfac4e6e.png)
 
-4. Refresh your Foundry World to reload it. This will load the world without the art map applied.
+4. Refresh your Foundry World to reload it (you may need to return to the setup screen and relaunch the world). This will load the world without the art map applied.
 5. Use the Compendium Image Mapper to map the compendium's art how you like (button A), then when finished generate a fresh Compendium Art Map (button B). If the button disappears, just switch to a different tab (such as the journal tab) and switch back. Button B should reappear.
 
 ![image](https://user-images.githubusercontent.com/34078802/228703466-9b54ad30-739d-496b-bbfb-df55129e3f34.png)
 
-6. Re-open the module.json file (from step 3), and add back the previously deleted code. Save the file, then refresh your Foundry world.
+6. Re-open the module.json file (from step 3), and add back the previously deleted code. Save the file, then refresh your Foundry world (you may need to return to the setup screen and relaunch the world).
 
 That should be it! If you need to change the mapped images, you can follow this process again or manually update the image filepaths in the server-side .json file specified by the "sfrpg-art" flag (the code we removed in step 3 above).
 
