@@ -22,10 +22,14 @@ I recommend using the [Compenium Image Mapper](https://foundryvtt.com/packages/i
 1. Ensure that both modules are enabled and that your world is running.
 2. Find the module's installation directory. This should be your user data directory/modules/sfrpg-art-map.
 3. Open the module.json file and remove the highlighted lines of code in the image below (make a copy of this as we'll need to add them back in later).
+
 ![image](https://user-images.githubusercontent.com/34078802/228699774-a09c8adb-3882-409b-9262-f878cfac4e6e.png)
+
 4. Refresh the program to reload it.
 5. Use the Compendium Image Mapper to map the compendium's art you want (A), then when finished generate the Compendium Art Map (B).
+
 ![image](https://user-images.githubusercontent.com/34078802/228703466-9b54ad30-739d-496b-bbfb-df55129e3f34.png)
+
 6. Re-open the module.json file (from step 3), and add back the previously deleted code.
 
 That should be it! If you need to update the images, you can follow this process again, or just manually update the filepaths in the file specified by the "sfrpg-art" flag (the code removed in step 3 above).
@@ -34,4 +38,5 @@ That should be it! If you need to update the images, you can follow this process
 ## Changelog
 
 v0.1.0 - Initial release
+
 v0.2.0 - Added some user-friendliness functionality (dialog confirmation & UI notification), localization, and a function to back the art map up each time a new one is generated
