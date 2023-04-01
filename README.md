@@ -17,7 +17,9 @@ This module allows you to generate a compendium art map json file automatically 
 
 ## Using this module with Compendium Image Mapper
 
-I recommend using the [Compenium Image Mapper](https://foundryvtt.com/packages/imagemapper) to automatically map your compendium art files ([GitLab Link](https://gitlab.com/Wilco7302/compendium-image-mapper)). Because this module uses the system's built-in art mapping functionality, it is not overwritten when the system updates. Because Compendium Image Mapper uses a different method of assigning the images to actors, though, some extra steps need to be taken to get everything to work correctly together.
+I recommend using the [Compenium Image Mapper](https://foundryvtt.com/packages/imagemapper) to automatically map your compendium art files ([GitLab Link](https://gitlab.com/Wilco7302/compendium-image-mapper)). If you have issues with the two modules not playing nicely with each other, try following this procedure below.
+
+Because this module uses the system's built-in art mapping functionality, it is not overwritten when the system updates. Because Compendium Image Mapper uses a different method of assigning the images to actors, though, some extra steps need to be taken to get everything to work correctly together.
 
 1. Ensure that both this module and the Compendium Image Mapper module are enabled, and that your Foundry world is running.
 2. Find the module's installation directory on your server. This should be your user data directory/modules/sfrpg-art-map.
