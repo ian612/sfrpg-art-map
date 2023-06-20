@@ -2,7 +2,7 @@
 <!--- ![Latest Release Download Count](https://img.shields.io/github/downloads/ian612/sfrpg-art-map/latest/module.zip) -->
 
 <!--- Forge Bazaar Install % Badge -->
-[Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fsfrpg-art-map&colorB=4aa94a)
+<!--- [Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fsfrpg-art-map&colorB=4aa94a) -->
 
 # Starfinder Compendium Art Map Generator ![](https://img.shields.io/badge/Foundry-v11-informational)
 
