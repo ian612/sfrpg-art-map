@@ -3,6 +3,8 @@ import { createJSON } from './scripts/compendium-export.js'
 Hooks.once('init', async function() {
     const artMap = SfrpgArtMap
     console.log('SF Art Map | Initializing Starfinder Compendium Art Mapper')
+
+    registerSystemSettings();
 })
 
 Hooks.once('ready', async function() {
@@ -68,11 +70,13 @@ class SfrpgArtMapConfig {
         })
 
         // Define the position of the button
-        const compendiumPanel = document.getElementById('compendium')
-        const compendiumHeader = compendiumPanel.getElementsByClassName('directory-header')[0]
-        const createEntityButton = compendiumHeader.getElementsByClassName('create-entity')[0]
-        compendiumHeader.insertBefore(artButton, createEntityButton)
+        if (game.settings.get("sfrpg-art-map", "showButton")) {
+            const compendiumPanel = document.getElementById('compendium')
+            const compendiumHeader = compendiumPanel.getElementsByClassName('directory-header')[0]
+            const createEntityButton = compendiumHeader.getElementsByClassName('create-entity')[0]
+            compendiumHeader.insertBefore(artButton, createEntityButton)
         }
+    }
 
         // Function to create the button
         static createButton() {
@@ -82,4 +86,23 @@ class SfrpgArtMapConfig {
 
             return button
         }
+}
+
+/*
+*
+* Settings
+*
+*/
+
+function registerSystemSettings() {
+    // Show the mapping button
+    game.settings.register("sfrpg-art-map", "showButton", {
+        name: "artMap.showButton",
+        hint: "artMap.showButtonHint",
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: true,
+        requiresReload: true
+    });
 }

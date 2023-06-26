@@ -6,6 +6,8 @@
         "generating": "Generating compendium art map...",
         "mapButton": "Generate Compendium Art Map",
         "no": "Nope.",
+        "showButton": "Show Map Generation Button",
+        "showButtonHint": "Enables/Disables the appearance of the button used to generate the art map on the compendiums tab.",
         "warning": "Are you sure you'd like to generate/refresh the compendium art map?\nA backup of the current art map will be saved.\nThis process may take 1-2 minutes.",
         "yes": "Yep!"
     }

@@ -2,18 +2,18 @@
   "id": "sfrpg-art-map",
   "title": "Starfinder Compendium Art Mapper",
   "description": "",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
     "minimum": 10,
-    "verified": 10.291,
-    "maximum": 10
+    "verified": 11.302,
+    "maximum": 11
   },
   "authors": [
     {
-      "name": "ian612",
-      "discord": "Graham_Negative#9479"
+      "name": "Ian Bennett",
+      "discord": "spacemanian"
     }
   ],
   "relationships": {
@@ -21,7 +21,7 @@
       "id": "sfrpg",
       "type": "system",
       "manifest": "https://raw.githubusercontent.com/foundryvtt-starfinder/foundryvtt-starfinder/master/src/system.json",
-      "verified": "0.23.0"
+      "verified": "0.24.2"
     }],
     "requires": []
   },
@@ -45,7 +45,7 @@
   ],
   "url": "https://github.com/ian612/sfrpg-art-map",
   "manifest": "https://raw.githubusercontent.com/ian612/sfrpg-art-map/master/module.json",
-  "download": "https://github.com/ian612/sfrpg-art-map/archive/refs/tags/v0.2.2.zip",
+  "download": "https://github.com/ian612/sfrpg-art-map/archive/refs/tags/v0.3.0.zip",
   "license": "LICENSE",
   "readme": "README.md"
 }
