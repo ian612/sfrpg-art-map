@@ -27,7 +27,7 @@
   "flags": {
     "compendiumArtMappings": {
       "sfrpg": {
-        "mapping": "modules-data/sfrpgArtMap/art-mapping.json"
+        "mapping": "modules-data/sfrpgArtMap/sfrpg-art-map-file.json"
       }
     }
   },
