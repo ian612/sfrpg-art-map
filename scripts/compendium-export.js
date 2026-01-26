@@ -46,32 +46,25 @@ export async function createJSON() {
 
 
   // Generate required data for each actor
-  for (let pack of actorPacks) {
+  for (const pack of actorPacks) {
     const compendium = pack.metadata.name;
-    const idCompendium = pack.metadata.id;
     data[compendium] = {};
 
     // Loop through each actor in the pack, collect the data
-    for (let actor of pack.index) {
-      const doc = await pack.getDocument(actor._id);
-
+    for (const actor of pack.index) {
       const id = actor._id;
-      data[compendium][id] = {};
+      const doc = await pack.getDocument(id);
 
-      const name = actor.name;
-      data[compendium][id].name = name;
-
-      const img = actor.img;
-      data[compendium][id].actor = img;
-
-      const imgToken = doc.prototypeToken.texture.src;
-      const imgTokenScale = doc.prototypeToken.texture.scaleX;
-      data[compendium][id].token = {};
-      data[compendium][id].token.img = imgToken;
-      data[compendium][id].token.scale = imgTokenScale;
-
-      const source = doc.system.details.source;
-      data[compendium][id].source = source;
+      data[compendium][id] = {
+        actor: actor.img,
+        name: actor.name,
+        source: doc.system.details.source,
+        token: {
+          texture: {
+            src: doc.prototypeToken.texture.src
+          }
+        }
+      };
     }
   }
 
