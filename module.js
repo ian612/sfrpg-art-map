@@ -1,7 +1,6 @@
 import { createJSON } from './scripts/compendium-export.js'
 
 Hooks.once('init', async function() {
-    const artMap = SfrpgArtMap
     console.log('SF Art Map | Initializing Starfinder Compendium Art Mapper')
 
     registerSystemSettings();
@@ -48,21 +47,21 @@ class SfrpgArtMapConfig {
         // Do something when the button is clicked
         $(artButton).click((event) => { 
             //new SfrpgArtMapForm().render(true) // Not implemented yet
-            const myDialog = new Dialog({
-                title: game.i18n.localize("artMap.mapButton"),
-              content: game.i18n.localize("artMap.warning"),
+            new Dialog({
+                title: game.i18n.localize("SFRPGArtMap.mapButton"),
+              content: game.i18n.localize("SFRPGArtMap.warning"),
               buttons: {
                 button1: {
-                    label: game.i18n.localize("artMap.yes"),
+                    label: game.i18n.localize("SFRPGArtMap.yes"),
                     callback: () => {
-                        ui.notifications.info(game.i18n.localize("artMap.generating"))
+                        ui.notifications.info(game.i18n.localize("SFRPGArtMap.generating"))
                         const imgData = createJSON()
                     },
                     icon: `<i class="fas fa-check"></i>`
                   },
                 button2: {
                     label: game.i18n.localize("artMap.no"),
-                    callback: () => {ui.notifications.info(game.i18n.localize("artMap.cancel"))},
+                    callback: () => {ui.notifications.info(game.i18n.localize("SFRPGArtMap.cancel"))},
                     icon: `<i class="fas fa-times"></i>`
                 },
               }
@@ -81,7 +80,7 @@ class SfrpgArtMapConfig {
         // Function to create the button
         static createButton() {
             let button = document.createElement('button')
-            button.innerHTML = `<i id='art-button' class='fas fa-palette'></i>`.concat(game.i18n.localize("artMap.mapButton"))
+            button.innerHTML = `<i id='art-button' class='fas fa-palette'></i>`.concat(game.i18n.localize("SFRPGArtMap.mapButton"))
             button.classList.add('control-icon')
 
             return button
@@ -97,8 +96,8 @@ class SfrpgArtMapConfig {
 function registerSystemSettings() {
     // Show the mapping button
     game.settings.register("sfrpg-art-map", "showButton", {
-        name: "artMap.showButton",
-        hint: "artMap.showButtonHint",
+        name: "SFRPGArtMap.showButton",
+        hint: "SFRPGArtMap.showButtonHint",
         scope: "world",
         config: true,
         type: Boolean,
